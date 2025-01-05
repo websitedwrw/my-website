@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.hero-banner {
+    background-image: url('../images/clothing-store-background.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+.minecraft-theme {
+    background-image: url('../images/minecraft-theme-background.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 50px;
+    color: #333;
+    font-family: "Minecraft", monospace;
+}
+.minecraft-theme .blocks {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.minecraft-theme .block {
+    width: 150px;
+    height: 150px;
+    background-color: #8b4513;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    border: 2px solid #000;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
