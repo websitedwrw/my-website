@@ -6,126 +6,8 @@
     <meta name="description" content="Experience premium fashion at Clothywise - Your ultimate fashion destination">
     <title>Clothywise | Premium Fashion</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Roboto', Arial, sans-serif;
-            background-color: #f8f9fa;
-        }
-        header {
-            background-color: #333;
-            color: white;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        header .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-        header .navbar ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-        header .navbar ul li {
-            margin: 0 10px;
-        }
-        header .navbar ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        header .navbar ul li a:hover {
-            color: #ff6600;
-        }
-        .hero-banner {
-            position: relative;
-            height: 100vh;
-            background-image: url('https://easyfashion.com.bd/wp-content/uploads/2023/01/clothing-store-banner.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .hero-banner::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 0;
-        }
-        .hero-banner h1 {
-            font-size: 3.5rem;
-            z-index: 1;
-        }
-        .hero-banner p {
-            font-size: 1.5rem;
-            margin: 20px 0;
-            z-index: 1;
-        }
-        .hero-banner .btn {
-            background-color: #ff6600;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            border-radius: 5px;
-            z-index: 1;
-            transition: background-color 0.3s ease;
-        }
-        .hero-banner .btn:hover {
-            background-color: #e55b00;
-        }
-        .categories, .top-deals {
-            padding: 60px 20px;
-            text-align: center;
-        }
-        .categories h2, .top-deals h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-        }
-        .categories .category-list, .top-deals .deal-items {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-        .category-item, .deal-item {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        .category-item:hover, .deal-item:hover {
-            transform: translateY(-5px);
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            margin-top: 40px;
-        }
-    </style>
 </head>
 <body>
-    <!-- HEADER -->
     <header>
         <div class="logo">Clothywise</div>
         <nav class="navbar">
@@ -138,14 +20,11 @@
         </nav>
     </header>
 
-    <!-- HERO BANNER -->
     <section class="hero-banner" id="home">
         <h1>Welcome to Clothywise</h1>
         <p>Your ultimate destination for premium fashion</p>
-        <a href="#categories" class="btn">Shop Now</a>
     </section>
 
-    <!-- CATEGORIES -->
     <section class="categories" id="categories">
         <h2>Explore Our Categories</h2>
         <div class="category-list">
@@ -156,29 +35,27 @@
         </div>
     </section>
 
-    <!-- TOP DEALS -->
     <section class="top-deals" id="deals">
         <h2>Today's Top Deals</h2>
         <div class="deal-items">
             <div class="deal-item">
-                <img src="premium_product1.jpg" alt="Product 1">
+                <img src="premium_product1.jpg" alt="Silk Shirt">
                 <h3>Silk Shirt</h3>
-                <p>$99.99</p>
+                <p>BDT 9,999</p>
             </div>
             <div class="deal-item">
-                <img src="premium_product2.jpg" alt="Product 2">
+                <img src="premium_product2.jpg" alt="Leather Jacket">
                 <h3>Leather Jacket</h3>
-                <p>$199.99</p>
+                <p>BDT 19,999</p>
             </div>
             <div class="deal-item">
-                <img src="premium_product3.jpg" alt="Product 3">
+                <img src="premium_product3.jpg" alt="Gold-Plated Watch">
                 <h3>Gold-Plated Watch</h3>
-                <p>$499.99</p>
+                <p>BDT 49,999</p>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <p>&copy; 2025 Clothywise. All rights reserved.</p>
     </footer>
