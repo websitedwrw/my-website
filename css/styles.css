@@ -1,38 +1,96 @@
 body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
-    font-family: Arial, sans-serif;
 }
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+header .navbar ul {
+    list-style: none;
+    display: flex;
+}
+
+header .navbar ul li {
+    margin: 0 15px;
+}
+
+header .navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+header .navbar ul li a:hover {
+    color: #ff6600;
+}
+
 .hero-banner {
-    background-image: url('../images/clothing-store-background.jpg');
+    background-image: url('hero-banner.jpg');
     background-size: cover;
     background-position: center;
+    height: 60vh;
     color: white;
     text-align: center;
-    padding: 100px 20px;
-}
-.minecraft-theme {
-    background-image: url('../images/minecraft-theme-background.jpg');
-    background-size: cover;
-    background-position: center;
-    padding: 50px;
-    color: #333;
-    font-family: "Minecraft", monospace;
-}
-.minecraft-theme .blocks {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hero-banner h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero-banner p {
+    font-size: 1.2rem;
+}
+
+.categories, .top-deals {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.categories h2, .top-deals h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.category-list, .deal-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
 }
-.minecraft-theme .block {
-    width: 150px;
-    height: 150px;
-    background-color: #8b4513;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+.category-item, .deal-item {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.category-item:hover, .deal-item:hover {
+    transform: translateY(-5px);
+}
+
+footer {
+    background-color: #333;
     color: white;
-    font-size: 1.2rem;
-    border: 2px solid #000;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    text-align: center;
 }
