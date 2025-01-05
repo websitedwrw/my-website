@@ -6,58 +6,194 @@
     <meta name="description" content="Experience premium fashion at Clothywise - Your ultimate fashion destination">
     <title>Clothywise | Premium Fashion</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .navbar ul li {
+            margin: 0 10px;
+        }
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .hero-banner {
+            position: relative;
+            height: 100vh;
+            background-color: #eee;
+            text-align: center;
+            padding: 50px;
+        }
+        .hero-banner h1 {
+            font-size: 3rem;
+        }
+        section {
+            padding: 20px;
+            background-color: white;
+            margin: 20px 0;
+        }
+        .product-grid {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        .product-card {
+            background: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            text-align: center;
+        }
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .connect-with-us, .information-links, .customer-service-links {
+            padding: 20px;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+        .information-links ul, .customer-service-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        .information-links li, .customer-service-links li {
+            margin: 10px 0;
+        }
+        .information-links a, .customer-service-links a {
+            text-decoration: none;
+            color: #333;
+        }
+        .information-links a:hover, .customer-service-links a:hover {
+            color: #ff6600;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="logo">Clothywise</div>
-        <nav class="navbar">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#categories">Categories</a></li>
-                <li><a href="#deals">Deals</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <section class="hero-banner" id="home">
-        <h1>Welcome to Clothywise</h1>
-        <p>Your ultimate destination for premium fashion</p>
-    </section>
+<header>
+    <div class="logo">Clothywise</div>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#mens">Men's Wear</a></li>
+            <li><a href="#womens">Women's Wear</a></li>
+            <li><a href="#accessories">Accessories</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <section class="categories" id="categories">
-        <h2>Explore Our Categories</h2>
-        <div class="category-list">
-            <div class="category-item">Men's Wear</div>
-            <div class="category-item">Women's Wear</div>
-            <div class="category-item">Accessories</div>
-            <div class="category-item">Kids' Fashion</div>
+<section class="hero-banner" id="home">
+    <h1>Welcome to Clothywise</h1>
+    <p>Your ultimate destination for premium fashion</p>
+</section>
+
+<!-- Product Sections -->
+<section id="mens">
+    <h2>Men's Wear</h2>
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="mens-shirt.jpg" alt="Men's Shirt">
+            <h3>Premium Men's Shirt</h3>
+            <p>Price: BDT 3,499</p>
+            <a href="#">View Product</a>
         </div>
-    </section>
-
-    <section class="top-deals" id="deals">
-        <h2>Today's Top Deals</h2>
-        <div class="deal-items">
-            <div class="deal-item">
-                <img src="premium_product1.jpg" alt="Silk Shirt">
-                <h3>Silk Shirt</h3>
-                <p>BDT 9,999</p>
-            </div>
-            <div class="deal-item">
-                <img src="premium_product2.jpg" alt="Leather Jacket">
-                <h3>Leather Jacket</h3>
-                <p>BDT 19,999</p>
-            </div>
-            <div class="deal-item">
-                <img src="premium_product3.jpg" alt="Gold-Plated Watch">
-                <h3>Gold-Plated Watch</h3>
-                <p>BDT 49,999</p>
-            </div>
+        <div class="product-card">
+            <img src="mens-jacket.jpg" alt="Men's Jacket">
+            <h3>Stylish Men's Jacket</h3>
+            <p>Price: BDT 6,799</p>
+            <a href="#">View Product</a>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer>
-        <p>&copy; 2025 Clothywise. All rights reserved.</p>
-    </footer>
+<section id="womens">
+    <h2>Women's Wear</h2>
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="womens-dress.jpg" alt="Women's Dress">
+            <h3>Elegant Women's Dress</h3>
+            <p>Price: BDT 4,199</p>
+            <a href="#">View Product</a>
+        </div>
+        <div class="product-card">
+            <img src="womens-top.jpg" alt="Women's Top">
+            <h3>Trendy Women's Top</h3>
+            <p>Price: BDT 2,599</p>
+            <a href="#">View Product</a>
+        </div>
+    </div>
+</section>
+
+<section id="accessories">
+    <h2>Accessories</h2>
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="watch.jpg" alt="Watch">
+            <h3>Luxury Watch</h3>
+            <p>Price: BDT 5,499</p>
+            <a href="#">View Product</a>
+        </div>
+        <div class="product-card">
+            <img src="sunglasses.jpg" alt="Sunglasses">
+            <h3>Fashion Sunglasses</h3>
+            <p>Price: BDT 1,899</p>
+            <a href="#">View Product</a>
+        </div>
+    </div>
+</section>
+
+<!-- Connect with Us -->
+<section class="connect-with-us">
+    <h2>Need Help?</h2>
+    <p>Phone: 01708156699 (10 AM – 6 PM) - (Except Weekend/Govt. Holidays)</p>
+    <p>Email: <a href="mailto:online@rise-brand.com">online@rise-brand.com</a></p>
+</section>
+
+<!-- Information Links -->
+<section class="information-links">
+    <h2>INFORMATION</h2>
+    <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Store Locator</a></li>
+        <li><a href="#">Loyalty Club Card</a></li>
+        <li><a href="#">Size Guide</a></li>
+        <li><a href="#">Join Us</a></li>
+        <li><a href="#">Fit Guide</a></li>
+    </ul>
+</section>
+
+<!-- Customer Service Links -->
+<section class="customer-service-links">
+    <h2>SERVICE AND SHOPPING</h2>
+    <ul>
+        <li><a href="#">Customer Service</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms and Conditions</a></li>
+        <li><a href="#">Billing and Shipping Policy</a></li>
+        <li><a href="#">Return and Exchange Policy</a></li>
+        <li><a href="#">Track Your Order</a></li>
+    </ul>
+</section>
+
 </body>
 </html>
