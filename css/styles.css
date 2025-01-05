@@ -1,96 +1,78 @@
 body {
     font-family: 'Roboto', Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f8f9fa;
     margin: 0;
 }
-
 header {
     background-color: #333;
     color: white;
-    padding: 20px;
+    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
-header .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-header .navbar ul {
+.navbar ul {
     list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
 }
-
-header .navbar ul li {
-    margin: 0 15px;
+.navbar ul li {
+    margin: 0 10px;
 }
-
-header .navbar ul li a {
+.navbar ul li a {
     color: white;
     text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
 }
-
-header .navbar ul li a:hover {
-    color: #ff6600;
-}
-
 .hero-banner {
-    background-image: url('hero-banner.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 60vh;
-    color: white;
+    position: relative;
+    height: 100vh;
+    background-color: #eee;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    padding: 50px;
 }
-
 .hero-banner h1 {
     font-size: 3rem;
-    margin-bottom: 10px;
 }
-
-.hero-banner p {
-    font-size: 1.2rem;
+section {
+    padding: 20px;
+    background-color: white;
+    margin: 20px 0;
 }
-
-.categories, .top-deals {
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.categories h2, .top-deals h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-}
-
-.category-list, .deal-items {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+.product-grid {
+    display: flex;
     gap: 20px;
+    justify-content: center;
 }
-
-.category-item, .deal-item {
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
+.product-card {
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.category-item:hover, .deal-item:hover {
-    transform: translateY(-5px);
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    padding: 20px;
+    width: 200px;
     text-align: center;
+}
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.connect-with-us, .information-links, .customer-service-links {
+    padding: 20px;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+.information-links ul, .customer-service-links ul {
+    list-style: none;
+    padding: 0;
+}
+.information-links li, .customer-service-links li {
+    margin: 10px 0;
+}
+.information-links a, .customer-service-links a {
+    text-decoration: none;
+    color: #333;
+}
+.information-links a:hover, .customer-service-links a:hover {
+    color: #ff6600;
 }
