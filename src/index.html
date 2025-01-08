@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StrangeStore Replica</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        header {
+            background-color: #1f1f1f;
+            color: #fff;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo img {
+            height: 40px;
+        }
+
+        .navbar ul {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .navbar ul li {
+            list-style: none;
+        }
+
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .navbar ul li a:hover {
+            color: #ff5722;
+        }
+
+        .search-bar {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 60%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #444;
+            border-radius: 25px;
+            font-size: 1rem;
+            outline: none;
+            background-color: #222;
+            color: #e0e0e0;
+        }
+
+        .search-bar button {
+            position: absolute;
+            right: 20%;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            background-color: #ff5722;
+            color: #fff;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        .search-bar button:hover {
+            background-color: #ff7043;
+        }
+
+        #hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('images/hero-banner.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        #hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        #hero p {
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+        }
+
+        #hero .btn-primary {
+            padding: 0.8rem 1.5rem;
+            background-color: #ff5722;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        #hero .btn-primary:hover {
+            background-color: #ff7043;
+        }
+
+        .section {
+            padding: 4rem 2rem;
+        }
+
+        .categories, .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .category, .product {
+            background-color: #1f1f1f;
+            border: 1px solid #333;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .category:hover, .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .category img, .product img {
+            width: 100%;
+            height: auto;
+        }
+
+        .category h3, .product h3 {
+            margin: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .product p {
+            margin: 0 1rem;
+            color: #ff5722;
+            font-weight: 700;
+        }
+
+        .product button, .category button {
+            margin: 1rem;
+            padding: 0.8rem 1.5rem;
+            background-color: #ff5722;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .product button:hover, .category button:hover {
+            background-color: #ff7043;
+        }
+
+        footer {
+            background-color: #1f1f1f;
+            color: #fff;
+            padding: 2rem 0;
+        }
+
+        .footer .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer .social-links a {
+            color: #fff;
+            margin-right: 1rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer .social-links a:hover {
+            color: #ff5722;
+        }
+    </style>
+    <script>
+        function performSearch() {
+            var query = document.getElementById('searchInput').value.toLowerCase();
+            var products = document.querySelectorAll('.product');
+            var categories = document.querySelectorAll('.category');
+            var found = false;
+
+            // Search through products and categories
+            products.forEach(function(product) {
+                var productName = product.querySelector('h3').textContent.toLowerCase();
+                if (productName.includes(query)) {
+                    product.scrollIntoView({ behavior: 'smooth' });
+                    found = true;
+                }
+            });
+
+            categories.forEach(function(category) {
+                var categoryName = category.querySelector('h3').textContent.toLowerCase();
+                if (categoryName.includes(query)) {
+                    category.scrollIntoView({ behavior: 'smooth' });
+                    found = true;
+                }
+            });
+
+            // If no product or category is found, scroll to the top
+            if (!found) {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function scrollToSection(sectionId) {
+            var section = document.getElementById(sectionId);
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function addToCart(productName) {
+            window.location.href = "https://discord.com/invite/ueJRj9pgcx";  // Redirect to Discord server
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="https://i.ibb.co/WxWYHdr/a-3591240849ed2f879da594113f76d2a7.gif" alt="StrangeStore Logo">
+            </div>
+            <ul>
+                <li><a href="#hero"><i class="fas fa-home"></i>Home</a></li>
+                <li><a href="#categories"><i class="fas fa-th-large"></i>Categories</a></li>
+                <li><a href="#about"><i class="fas fa-info-circle"></i>About</a></li>
+                <li><a href="#contact"><i class="fas fa-phone-alt"></i>Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div>
+            <h1>Welcome to StrangeStore</h1>
+            <p>Your ultimate marketplace for game accounts, top-ups, and subscriptions.</p>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for products..." id="searchInput">
+                <button onclick="performSearch()"><i class="fas fa-search"></i>Search</button>
+            </div>
+            <button class="btn-primary" onclick="scrollToSection('categories')"><i class="fas fa-cart-plus"></i>Shop Now</button>
+        </div>
+    </section>
+
+    <section id="categories" class="section">
+        <h2>Our Categories</h2>
+        <div class="categories">
+            <div class="category">
+                <img src="https://i.ibb.co/XWcjbvD/50d060b8-9480-4416-ae93-cfa744fbff9a.webp" alt="Game Top-ups">
+                <h3>Game Top-ups</h3>
+                <button onclick="scrollToSection('currency-topups')"><i class="fas fa-search"></i>Explore</button>
+            </div>
+            <div class="category">
+                <img src="https://i.ibb.co/pL5GwKd/14ef9a84-6fc7-41e2-bee1-2479f944dab6.webp" alt="Subscriptions">
+                <h3>Subscriptions</h3>
+                <button onclick="scrollToSection('subscriptions')"><i class="fas fa-search"></i>Explore</button>
+            </div>
+            <div class="category">
+                <img src="https://i.ibb.co/mX37Hmt/9b11a2f4-169c-45cd-988e-5a1b0b9d1773.webp" alt="Game Accounts">
+                <h3>Game Accounts</h3>
+                <button onclick="scrollToSection('game-accounts')"><i class="fas fa-search"></i>Explore</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="currency-topups" class="section">
+        <h2>Game Top-ups</h2>
+        <div class="products">
+            <div class="product">
+                <img src="https://i.ibb.co.com/z8zzSQF/b5abf4b0-7456-4f64-8b7f-c4c56da4090d.webp" alt="Product 1">
+                <h3>BDT TO LTC</h3>
+                <p>130TK $</p>
+                <button onclick="addToCart('Top-up A')"><i class="fas fa-shopping-cart"></i>Buy Now</button>
+            </div>
+            <div class="product">
+                <img src="https://i.ibb.co.com/Mcb9H9N/e14e7481-c599-427a-ab0d-886bae06c800.webp" alt="Product 2">
+                <h3>LTC TO BDT</h3>
+                <p>120TK $</p>
+                <button onclick="addToCart('Top-up B')"><i class="fas fa-shopping-cart"></i>Buy Now</button>
+            </div>
+            <div class="product">
+                <img src="https://i.ibb.co.com/KrLFHVR/11fa6528-1f41-4e38-a58c-2883fe2581d0.webp" alt="Product 3">
+                <h3>14X DISCORD BOOST 1MONTH-3MONTH</h3>
+                <p>1MONTH 270TK 2.2$ 220INR
+3MONTH 6$ 650TK 600INR</p>
+                <button onclick="addToCart('Top-up C')"><i class="fas fa-shopping-cart"></i>Buy Now</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="subscriptions" class="section">
+        <h2>Subscriptions</h2>
+        <div class="products">
+            <div class="product">
+                <img src="https://i.ibb.co.com/0cZ46PQ/94640e2c-bddf-496e-a4e1-9a4f94e5721d.webp" alt="Product 4">
+                <h3>NITRO BESIC 1MONTH</h3>
+                <p>$1.2 150BDT 120INR</p>
+                <button onclick="addToCart('Subscription A')"><i class="fas fa-shopping-cart"></i>Buy Now</button>
+            </div>
+            <div class="product">
+                <img src="https://i.ibb.co.com/WtWj46D/4fbf75f0-7c3b-47b8-9913-a2405357b63f.webp" alt="Product 5">
+                <h3>NITRO BOOST</h3>
+                <p>$4.5$ 570BDT 480INR</p>
+                <button onclick="addToCart('Subscription B')"><i class="fas fa-shopping-cart"></i>Buy Now</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="game-accounts" class="section">
+        <h2>Game Accounts</h2>
+        <div class="products">
+            <div class="product">
+                <img src="https://i.ibb.co.com/NYRddJ9/IMG-5662.jpg" alt="Product 6">
+                <h3>MINECRAFT JAVA+BEDROCK LIFETIME</h3>
+                <p>$4 500BDT 420INR</p>
+                <button onclick="addToCart('Account A')"><i class="fas fa-shopping-cart"></i>Buy Now</button>
+            </div>
+            <div class="product">
+                <img src="https://i.ibb.co.com/6wLJTm0/IMG-5663.jpg" alt="Product 7">
+                <h3>NETFLIX 1 SCREEN</h3>
+                <p>$2 250BDT 200INR</p>
+                <button onclick="addToCart('Account B')"><i class="fas fa-shopping-cart"></i>Buy Now</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2>About Us</h2>
+        <p>Welcome to StrangeStore, your go-to platform for the best deals on game accounts, top-ups, and subscriptions. We aim to deliver an excellent shopping experience and top-notch customer service. payment method Bkash Nagad Upi Ltc</p>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Contact Us</h2>
+        <p>Got a question? Reach out to us via email at <strong>rabbybai8777@gmail.com</strong> or call us at <strong>+8801786487778 Whatsapp</strong>.</p>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 StrangeStore. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/g/18JoGf3pBn/?mibextid=wwXIfr"><i class="fab fa-facebook"></i>Facebook</a>
+                <a href="https://twitter.com/"><i class="fab fa-twitter"></i>Twitter</a>
+                <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i>Instagram</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
